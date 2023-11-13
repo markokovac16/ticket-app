@@ -35,9 +35,11 @@
     @apply mt-4;
   }
   input,
-  select,
   textarea {
     @apply m-1 rounded bg-card p-4;
+  }
+  select {
+    @apply m-1 rounded bg-card p-2;
   }
 }
 
