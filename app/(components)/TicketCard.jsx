@@ -3,6 +3,7 @@ import Description from "./Description";
 import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./ProgressDisplay";
 import StatusDisplay from "./StatusDisplay";
+import Link from "next/link";
 
 const TicketCard = ({ ticket }) => {
   const createdAt = new Date(ticket.createdAt);
@@ -18,23 +19,25 @@ const TicketCard = ({ ticket }) => {
         </div>
       </div>
 
-      <h4>{ticket.title}</h4>
-      <hr className="h-px mb-2 border-0 bg-page" />
-      <Description description={ticket.description} />
-      <div className="flex-grow"></div>
-      <div className="flex mt-2">
-        <div className="flex flex-col gap-1">
-          <p>Created at: {formattedDate}</p>{" "}
-          {updatedDate !== formattedDate && <p>Updated at: {updatedDate}</p>}
-          {updatedDate === formattedDate && (
-            <p className="mb-2 text-sm text-gray-400">Hasn't been updated</p>
-          )}
-          <ProgressDisplay progress={ticket.progress} />
+      <Link href={`/TicketPage/${ticket._id}`} style={{ display: "contents" }}>
+        <h4>{ticket.title}</h4>
+        <hr className="h-px mb-2 border-0 bg-page" />
+        <Description description={ticket.description} />
+        <div className="flex-grow"></div>
+        <div className="flex mt-2">
+          <div className="flex flex-col gap-1">
+            <p>Created at: {formattedDate}</p>{" "}
+            {updatedDate !== formattedDate && <p>Updated at: {updatedDate}</p>}
+            {updatedDate === formattedDate && (
+              <p className="mb-2 text-sm text-gray-400">Hasn't been updated</p>
+            )}
+            <ProgressDisplay progress={ticket.progress} />
+          </div>
+          <div className="flex items-end ml-auto">
+            <StatusDisplay status={ticket.status} />
+          </div>
         </div>
-        <div className="flex items-end ml-auto">
-          <StatusDisplay status={ticket.status} />
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };
