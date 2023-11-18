@@ -1,4 +1,5 @@
 import DeleteBlock from "./DeleteBlock";
+import Description from "./Description";
 import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./ProgressDisplay";
 import StatusDisplay from "./StatusDisplay";
@@ -19,7 +20,7 @@ const TicketCard = ({ ticket }) => {
 
       <h4>{ticket.title}</h4>
       <hr className="h-px mb-2 border-0 bg-page" />
-      <p className="whitespace-pre-wrap">{ticket.description}</p>
+      <Description description={ticket.description} />
       <div className="flex-grow"></div>
       <div className="flex mt-2">
         <div className="flex flex-col gap-1">
