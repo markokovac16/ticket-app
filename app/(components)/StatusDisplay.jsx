@@ -20,7 +20,7 @@ const StatusDisplay = ({ status }) => {
   };
   return (
     <span
-      className={`inline-block px-2 py-1 text-xs font-semibold text-gray-700  rounded-full ${getColor(
+      className={`inline-block uppercase px-2 py-1 text-xs font-semibold text-gray-700  rounded-full ${getColor(
         status
       )}`}
     >
