@@ -9,7 +9,7 @@ const TicketCard = ({ ticket }) => {
   const updatedAt = new Date(ticket.updatedAt);
   const updatedDate = updatedAt.toLocaleString();
   return (
-    <div className="flex flex-col p-3 m-2 transition duration-500 ease-in-out rounded-md shadow-lg bg-card hover:bg-card-hover hover:cursor-pointer">
+    <div className="flex flex-col p-3 m-2 transition duration-700 ease-in-out rounded-md shadow-lg bg-card hover:bg-card-hover hover:cursor-pointer">
       <div className="flex mb-3">
         <PriorityDisplay priority={ticket.priority} />
         <div className="ml-auto">
@@ -25,6 +25,9 @@ const TicketCard = ({ ticket }) => {
         <div className="flex flex-col gap-1">
           <p>Created at: {formattedDate}</p>{" "}
           {updatedDate !== formattedDate && <p>Updated at: {updatedDate}</p>}
+          {updatedDate === formattedDate && (
+            <p className="mb-2 text-sm text-gray-400">Hasn't been updated</p>
+          )}
           <ProgressDisplay progress={ticket.progress} />
         </div>
         <div className="flex items-end ml-auto">
