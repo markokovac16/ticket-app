@@ -32,7 +32,10 @@ The Ticketing App is designed to streamline issue tracking and management, provi
 ## Installation
 
 1. Clone the repository:
+
+   ```bash
    git clone https://github.com/markokovac16/ticket-app.git
+   ```
 
 2. Navigate to the project directory:
 
